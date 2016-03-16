@@ -1,1 +1,1 @@
-# gedeonix-ng
+# Gedeonix Ng
