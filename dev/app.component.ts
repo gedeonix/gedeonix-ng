@@ -2,24 +2,29 @@ import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES, RouteConfig, Router} from "angular2/router";
 import {HomeComponent} from "./home/home.component";
 import {AboutComponent} from "./about/about.component";
+import {RouterActiveDirective} from "./directive/router-active.directive";
+import {SettingsComponent} from "./settings/settings.component";
 
 @Component({
     selector: 'app',
     template: `
         <header class="header">
             <div class="container">
-                <h1 class="title">Gedeonix UI</h1>
+                <h1 class="title">{{title}}</h1>
             </div>
         </header>
 
         <nav class="is-primary">
             <ul class="container tabs is-boxed">
-                <li [class.active]="isRouteActive(['./Home'])"><a [routerLink]="['Home']">Home</a></li>
-                <li [class.active]="isRouteActive(['./About'])"><a [routerLink]="['About']">About</a></li>
+                <li router-active><a [routerLink]="['Home']">Home</a></li>
+                <li router-active><a [routerLink]="['About']">About</a></li>
+                <li router-active><a [routerLink]="['Settings']">Settings</a></li>
             </ul>
         </nav>
 
-        <router-outlet></router-outlet>
+        <main class="container">
+            <router-outlet></router-outlet>
+        </main>
 
         <footer class="footer">
             <div class="container">
@@ -31,14 +36,17 @@ import {AboutComponent} from "./about/about.component";
             </div>
         </footer>
     `,
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, RouterActiveDirective]
 })
 
 @RouteConfig([
     {path: '/home', name: 'Home', component: HomeComponent, useAsDefault: true},
-    {path: '/about', name: 'About', component: AboutComponent}
+    {path: '/about', name: 'About', component: AboutComponent},
+    {path: '/settings', name: 'Settings', component: SettingsComponent}
 ])
 export class AppComponent {
+
+    title = 'Gedeonix UI';
 
     constructor(private router: Router) {
     }
