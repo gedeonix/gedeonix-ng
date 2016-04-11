@@ -10,26 +10,27 @@ import {SettingsComponent} from "./settings/settings.component";
 @Component({
     selector: 'app',
     template: `
-        <header class="header">
-            <div class="container nav">
-                <div class="nav-brand">{{title}}</div>
-                <div class="nav-right">
-                    <a class="btn is-success" [routerLink]="['Register']"><i class="fa fa-user"></i> Register</a>
-                    <a class="btn is-primary" [routerLink]="['Login']"><i class="fa fa-lock"></i> Login</a>
-                    <!--
-                    <a class="btn is-danger" [routerLink]="['Home']"><i class="fa fa-power-off"></i> Logout</a>
-                    -->
+
+        <header class="header is-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="brand">Gedeonix UI</div>
+                    <div class="menu is-right">
+                        <a class="btn is-success" [routerLink]="['Register']"><i class="fa fa-user"></i> Register</a>
+                        <a class="btn is-primary" [routerLink]="['Login']"><i class="fa fa-lock"></i> Login</a>
+                        <a class="btn is-danger" [routerLink]="['Home']"><i class="fa fa-power-off"></i> Logout</a>
+                    </div>
                 </div>
             </div>
         </header>
 
         <nav class="is-primary">
             <div class="container">
-                <ul class="tabs is-boxed">
-                <li router-active><a [routerLink]="['Home']">Home</a></li>
-                <li router-active><a [routerLink]="['About']">About</a></li>
-                <li class="is-space"></li>
-                <li router-active><a [routerLink]="['Settings']">Settings</a></li>
+                <ul class="menu is-tab">
+                    <li router-active><a [routerLink]="['Home']">Home</a></li>
+                    <li router-active><a [routerLink]="['About']">About</a></li>
+                    <li class="is-space"></li>
+                    <li router-active><a [routerLink]="['Settings']">Settings</a></li>
                 </ul>
             </div>
         </nav>
@@ -60,7 +61,7 @@ import {SettingsComponent} from "./settings/settings.component";
 ])
 export class AppComponent {
 
-    title = 'Gedeonix UI';
+    title = 'Gedeonix Ng';
 
     constructor(private router:Router) {
     }
