@@ -11,22 +11,25 @@ import {SettingsComponent} from "./settings/settings.component";
     selector: 'app',
     template: `
 
-        <header class="header is-dark">
+        <header class="header is-fixed is-shadow is-dark">
             <div class="container">
-                <div class="row">
+                <div class="row xs-1 sm-2">
                     <div class="brand">Gedeonix UI</div>
-                    <div class="menu is-right">
-                        <a class="btn is-success" [routerLink]="['Register']"><i class="fa fa-user"></i> Register</a>
-                        <a class="btn is-primary" [routerLink]="['Login']"><i class="fa fa-lock"></i> Login</a>
-                        <a class="btn is-danger" [routerLink]="['Home']"><i class="fa fa-power-off"></i> Logout</a>
+
+                    <div class="col is-right">
+                        <button class="btn is-warning is-outline is-md" [routerLink]="['Register']"><i class="fa fa-user"></i> Register</button>
+                        <button class="btn is-warning is-outline is-md" [routerLink]="['Login']"><i class="fa fa-lock"></i> Login</button>
+                        <button class="btn is-warning is-outline is-md" [routerLink]="['Home']"><i class="fa fa-power-off"></i> Logout</button>
                     </div>
                 </div>
             </div>
         </header>
 
-        <nav class="is-primary">
+        <div class="fixed-space"></div>
+
+        <nav class="is-orange">
             <div class="container">
-                <ul class="menu is-tab">
+                <ul class="nav">
                     <li router-active><a [routerLink]="['Home']">Home</a></li>
                     <li router-active><a [routerLink]="['About']">About</a></li>
                     <li class="is-space"></li>
